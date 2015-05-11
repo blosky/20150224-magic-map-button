@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index5</title>
+	<meta charset="utf-8">
+	<script src="../../js/d3.v3.min.js"></script>
+	<script src="../../js/d3.geo.projection.v0.min.js"></script>
+	<script src="../../js/topojson.v1.min.js"></script>
+	<script src="../../js/queue.v1.min.js"></script>
+	<script src="../../js/d3.geo.zoom.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <link rel='stylesheet' href='http://pasteup.guim.co.uk/0.0.5/css/fonts.pasteup.min.css'/>
+
+	<script src="../js/Worldmap.js"></script>
+
+	<style type="text/css">
+
+  @font-face{font-family:"Guardian Text Egyptian Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.svg#GuardianTextEgyptianWeb-Regular") format("svg");font-weight:400;font-style:normal;font-stretch:normal}@font-face{font-family:"Guardian Text Egyptian Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.svg#GuardianTextEgyptianWeb-RegularItalic") format("svg");font-weight:400;font-style:italic;font-stretch:normal}@font-face{font-family:"Guardian Text Egyptian Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.svg#GuardianTextEgyptianWeb-Medium") format("svg");font-weight:700;font-style:normal;font-stretch:normal}@font-face{font-family:"Guardian Egyptian Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.svg#GuardianEgyptianWeb-Light") format("svg");font-weight:200;font-style:normal;font-stretch:normal}@font-face{font-family:"Guardian Egyptian Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.svg#GuardianEgyptianWeb-Regular") format("svg");font-weight:400;font-style:normal;font-stretch:normal}@font-face{font-family:"Guardian Egyptian Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.svg#GuardianEgyptianWeb-Medium") format("svg");font-weight:500;font-style:normal;font-stretch:normal}@font-face{font-family:"Guardian Egyptian Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.svg#GuardianEgyptianWeb-Semibold") format("svg");font-weight:900;font-style:normal;font-stretch:normal}@font-face{font-family:"Guardian Text Sans Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.svg#GuardianTextSansWeb-Regular") format("svg");font-weight:400;font-style:normal;font-stretch:normal}@font-face{font-family:"Guardian Text Sans Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.svg#GuardianTextSansWeb-RegularItalic") format("svg");font-weight:400;font-style:italic;font-stretch:normal}@font-face{font-family:"Guardian Text Sans Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.svg#GuardianTextSansWeb-Medium") format("svg");font-weight:700;font-style:normal;font-stretch:normal}@font-face{font-family:"Guardian Sans Web";src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.eot");src:url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.eot?#iefix") format("embedded-opentype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.woff2") format("woff2"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.woff") format("woff"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.ttf") format("truetype"),url("//pasteup.guim.co.uk/fonts/0.1.0/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.svg#GuardianSansWeb-Regular") format("svg");font-weight:400;font-style:normal;font-stretch:normal}
+
+
+    body
+    {
+      background: #FFF;
+    }
+
+    svg
+    {
+      cursor: move;
+      border: 1px solid red;
+    }
+
+    .ui-menu
+    {
+      list-style-type: none;
+      width: 210px;
+    }
+
+    .ui-menu li
+    {
+      border-bottom: 1px solid #DFDFDF;
+      padding: 3px 8px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #000;
+      background: white;
+    }
+
+    .ui-autocomplete
+    {
+      padding: 0;
+    }
+
+    ul .ui-state-focus
+    {
+      background: black;
+      color: white;
+    }
+
+    .ui-helper-hidden-accessible
+    {
+    	display: none;
+    }
+
+    .ui-menu li a {
+      display: block;
+      border: medium none;
+    }
+
+    .country
+    {
+      fill:#D9D9D9;
+      stroke-widht:1px;
+    }
+
+    .border
+    {
+      stroke:#647882;
+      stroke-width:1px;
+      fill:none;
+      stroke-dasharray:3,3; 
+    }
+
+    .borderbg
+    {
+      stroke:white;
+      stroke-width:1px;
+      fill:none;
+    }
+
+    .selected
+    {
+      fill:#D9D9D9;
+    }
+
+    .place-label
+    {
+    	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+    	font-size: 14px;
+    	fill: #666;
+    }
+
+    .countryname
+    {
+      fill:#808080;
+      font-family:'Guardian Egyptian Web', Georgia, serif;
+      font-size:20px;
+      font-weight:500;
+      line-height:19px;
+      text-align:center;
+      border: 1px solid red;
+    }
+
+    .Admin-0
+    {
+      fill:#808080;
+      font-family:'Guardian Text Sans Web', Arial, sans-serif;
+      font-size:15px;
+      font-weight:600;
+      letter-spacing:-0.0125em;
+      line-height:19px;
+    }
+    .Admin-1
+    {
+
+    }
+    .Populated
+    {
+
+    }
+    .Historic
+    {
+
+    }
+    .Scientific
+    {
+
+    }
+    .Meteorological
+    {
+
+    }
+
+    .boundary
+    {
+	  fill: none;
+	  stroke: #647882;
+	  stroke-linejoin: round;
+	}
+
+  .square
+  {
+    fill: #7F7F7F;
+    stroke-width:1px;
+    stroke:#FFFFFF;
+  }
+
+
+
+
+
+  </style>  
+
+</head>
+<body>
+	<button id="zoom_in" class="zoomButton">+</button>
+	<button id="zoom_out" class="zoomButton">-</button>
+	<button id="reset">Reset</button>
+
+	<select id="projections_menu">
+		<option value="Robinson">Robinson2</option>
+		<option value="Mercator">Mercator</option>
+	</select>
+
+	<div class="ui-widget">
+		<label for="tags"></label>
+		<input id="tags"/>
+	</div>
+
+	<input id="w" placeholder="Width"/>
+	<input id="h" placeholder="Height"/>
+	<button id="dimensions">Set dimensions</button>
+
+	<div id="map"></div>
+
+	<script type="text/javascript">
+		var map = new Worldmap(window.innerWidth, window.innerHeight, 180, "Mercator", "map", "../json/", callBack);//width, height, init scale, projection: "Mercator" / "Robison", root to topojson folder, call back funtion
+		var availableTags = [];
+		var menu;
+		function callBack ()
+		{
+			map.worldHigh.forEach(function(d){availableTags.push({label:d.properties.name, value:d.properties.adm0_a3})})
+			createDropDownMenu();
+			createResetButton();
+			createProjectionsMenu();
+			createZoom();
+			createDimensions();
+		}
+
+		function createZoom()
+		{
+			d3.selectAll('.zoomButton').on('click', function(){
+				var direction = 1;
+				direction = (this.id === 'zoom_in') ? 1 : -1;
+
+				map.zoomClick(direction);
+			});
+		}
+
+		function createProjectionsMenu()
+		{
+			d3.select("#projections_menu").on("change", function(){map.resetPorjection(this.value)})	
+		}
+
+		function createResetButton()
+		{
+			d3.select("#reset").on("click", function(){map.reset();})
+		}
+
+		function createDropDownMenu()
+		{
+			$( "#tags" ).autocomplete({
+				source: availableTags,
+				focus: function( event, ui ) {
+					$( "#tags" ).val( ui.item.label );
+					return false;
+				},
+				select:function(event, ui ){onTagSelected(event, ui ); return false}
+			});
+		}
+
+		function onTagSelected(event,ui)
+		{
+			var country = d3.select(".country ." + ui.item.value);
+
+			map.worldHigh.forEach(function(d){if(d.properties.adm0_a3 == ui.item.value)map.clicked(d); return})
+		}
+
+		function createDimensions()
+		{
+
+			d3.select("#dimensions").on('click', function()
+			{
+				map.setWidth(Number(document.getElementById('w').value));
+				map.setHeight(Number(document.getElementById('h').value));
+
+				console.log(map.width)
+				map.resetView();
+			})
+			
+		}
+	</script>
+
+</body>
+</html>
