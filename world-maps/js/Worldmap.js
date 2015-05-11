@@ -8,8 +8,8 @@ function Worldmap(_width, _height, _initScale, _projection, _divId, _root, callB
 
 	var div = d3.select("#"+_divId);
 	var ratio = window.devicePixelRatio || 1;
-	var p = [0,0];
-	var r = [0,0];
+	var origin_point = [0,0];
+	var oposite_point = [0,0];
 	var countries;
 	var borders;
 	var conflict_borders;
@@ -146,9 +146,10 @@ function redraw()
 
      if(cities)
      {
-        cities.attr("transform", function(d,i) {console.log(selected_cities_position[i]);return "translate(" + projection(d.geometry.coordinates) + ")"; })
+        //console.log(origin_point)
+        cities.attr("transform", function(d,i) {return "translate(" + projection(d.geometry.coordinates) + ")"; })
         pinpoints.attr("transform", function(d) {return "translate(" + [projection(d.geometry.coordinates)[0] - 8, projection(d.geometry.coordinates)[1]] + ")"; })
-        //countryname.attr("transform", function(d){console.log(projection(d3.geo.centroid(d)));return "translate(" + projection(d3.geo.centroid(d)) + ")"})
+        //countryname.attr("transform", function(d){return "translate(" + projection(d3.geo.centroid(d)) + ")"})
         arrangeLabels();
       }
 }
@@ -202,19 +203,33 @@ function typeOf(value)
     text.attr("transform", function(d){return "translate(" + [posX, d3.event.y] + ")"});
 }
 
+
+
+d3.select("svg").on("mousedown.log", function() {
+  //console.log(projection.invert(d3.mouse(this)));
+});
     //---------------------------------------------------------------------------------------------
     //PUBLIC METHODS
     //---------------------------------------------------------------------------------------------
-var selected_cities_position = [];
+
+
+
     this.clicked = function(d)
     {
+
+         console.log(projection.invert(d3.mouse(this)));
 
         if(cities)d3.selectAll(".place-label").remove();
         if(cities)d3.selectAll(".square").remove();
         if(cities)d3.selectAll(".countryname").remove();
-        p = d3.geo.centroid(d);
-        r = [-p[0], -p[1]];
-        projection.rotate(r);  
+        origin_point = d3.geo.centroid(d);
+        oposite_point= [-origin_point[0], -origin_point[1]];
+
+        //console.log(origin_point,oposite_point)
+
+
+
+        projection.rotate(oposite_point);  
         zoomBounds(projection, d)
 
         var selected = d.properties.adm0_a3;
@@ -227,9 +242,8 @@ var selected_cities_position = [];
         d3.select(".world")
         .append("text")
         .attr("class", "countryname")
-        .text(d.properties.name)
-        .attr("transform","translate(" + projection(p) + ")")
-        .style("border",  "1px solid red")
+        .text(d.properties.name )
+        .attr("transform","translate(" + projection(origin_point) + ")")
         .call(drag)
 
         world.selectAll(".cities")
@@ -237,14 +251,12 @@ var selected_cities_position = [];
         .enter().insert("text", ".world")
         .attr("class", function(d){return 'place-label ' + d.properties.featurecla})
         .text(function(d) { return d.properties.name; })
-        .attr("transform", function(d) {selected_cities_position.push(projection(d.geometry.coordinates));return "translate(" + projection(d.geometry.coordinates) + ")"; })
-        .attr("x", function(d) { return d.geometry.coordinates[0] > -1 ? 3 : -10; })
+        .attr("transform", function(d) {return "translate(" + projection(d.geometry.coordinates) + ")"; })
+        .attr("x", function(d) { console.log(d.geometry.coordinates[0], projection([d.geometry.coordinates[0], 0]));return d.geometry.coordinates[0] > -1 ? 3 : -10; })
         .attr("y", 8)
         .style("text-anchor", function(d) { return d.geometry.coordinates[0] > -1 ? "start" : "end"; })
         .on("dblclick", function(d){this.remove()})
         .call(drag);
-
-        console.log(selected_cities_position)
 
         world.selectAll(".pinpoints")
         .data(selected_cities)
@@ -267,7 +279,7 @@ var selected_cities_position = [];
 
     this.reset = function()
     {
-    	r= [0,0];
+    	oposite_point= [0,0];
     	zoom.scale(this.initScale);
         if(cities)d3.selectAll(".place-label").remove();  
         if(cities)d3.select(".countryname").remove();  
