@@ -1,0 +1,712 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Y",
+				"Year"
+			],
+			[
+				"bro",
+				"browsers"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"map",
+				"map_labour"
+			],
+			[
+				"clone",
+				"clone_center"
+			],
+			[
+				"get",
+				"getCentroid"
+			],
+			[
+				"clo",
+				"clone_center"
+			],
+			[
+				"mapL",
+				"mapLabTop"
+			],
+			[
+				"con",
+				"con_container"
+			],
+			[
+				"n",
+				"inherit"
+			],
+			[
+				"ma",
+				"mapTop"
+			],
+			[
+				"to",
+				"tooltip"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"ta",
+				"tacticalvote"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"constyt",
+				"constituency"
+			],
+			[
+				"sele",
+				"select"
+			],
+			[
+				"cons",
+				"constituency"
+			],
+			[
+				"call",
+				"callbackOut"
+			],
+			[
+				"selec",
+				"selected"
+			],
+			[
+				"d",
+				"div	Tag"
+			],
+			[
+				"lab",
+				"lab_map"
+			],
+			[
+				"lab_co",
+				"lab_container"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"countryna",
+				"countryname"
+			],
+			[
+				"cou",
+				"countryname"
+			],
+			[
+				"sle",
+				"select"
+			],
+			[
+				"county",
+				"countryname"
+			],
+			[
+				"c",
+				"country"
+			],
+			[
+				"wor",
+				"worldLow"
+			],
+			[
+				"pro",
+				"projection"
+			],
+			[
+				"zoo",
+				"zoomBounds"
+			],
+			[
+				"topo",
+				"topojsonLoaded"
+			],
+			[
+				"ro",
+				"robinson"
+			],
+			[
+				"ge",
+				"geometry"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"feture",
+				"featurecla"
+			],
+			[
+				"se",
+				"selected_cities"
+			],
+			[
+				"trans",
+				"transition"
+			],
+			[
+				"click",
+				"click"
+			],
+			[
+				"str",
+				"stroke-width"
+			],
+			[
+				"dat",
+				"datum"
+			],
+			[
+				"sto",
+				"stroke-width"
+			],
+			[
+				"a",
+				"array"
+			],
+			[
+				"subuni",
+				"subunits"
+			],
+			[
+				"st",
+				"style	Tag"
+			],
+			[
+				"pr",
+				"projection"
+			],
+			[
+				"s",
+				"style"
+			],
+			[
+				"pop",
+				"pop_max"
+			],
+			[
+				"p",
+				"properties"
+			],
+			[
+				"feature",
+				"featurecla"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"sca",
+				"scaleExtent"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"w",
+				"world110m"
+			],
+			[
+				"zoom",
+				"zoom_out"
+			],
+			[
+				"clic",
+				"click"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"count",
+				"countries"
+			],
+			[
+				"world",
+				"world50m"
+			],
+			[
+				"select",
+				"selectAll"
+			],
+			[
+				"coun",
+				"country"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"sc",
+				"scale"
+			],
+			[
+				"countr",
+				"country_border_thickness"
+			],
+			[
+				"country_",
+				"country_fill"
+			],
+			[
+				"country_border_",
+				"country_border_thickness"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"lenght",
+				"length-1"
+			],
+			[
+				"ba",
+				"backward"
+			],
+			[
+				"yea",
+				"years"
+			],
+			[
+				"ye",
+				"year"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"res",
+				"resHeight"
+			],
+			[
+				"ini",
+				"init-background"
+			],
+			[
+				"he",
+				"barsHeight"
+			],
+			[
+				"tran",
+				"translate"
+			],
+			[
+				"po",
+				"population"
+			],
+			[
+				"year",
+				"yearStr"
+			],
+			[
+				"le",
+				"length"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/pgutierrez/Documents/workspace/guardian/20150604 vaccines/data.tsv",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150604 vaccines/data2.tsv",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150604 vaccines/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150512 migration maps/ai/ramadan_gamasa_responsive-interactive/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150512 migration maps/ai/def/20150529_migration_arrows_responsive-interactive/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150604 vaccines/data.csv",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150604 vaccines/index2.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/js/Worldregions.js",
+		"/Users/pgutierrez/Downloads/DB-SCHEMA/js/areas-chart.js",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/gu_world.topojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150429 Changing seats/js/ActiveMap.js",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150318 uk_hexagons/data/data.json",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/gm_world1.topojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150429 Changing seats/lab_con_4.svg",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150429 Changing seats/lab_con.svg",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/gm_world.topojson",
+		"/Users/pgutierrez/Downloads/Archive (3)/map.dbf",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150429 Changing seats/conservativeclean.csv",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150429 Changing seats/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index5.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index6.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/js/Worldmap.js",
+		"/Users/pgutierrez/Documents/workspace/guardian/magic-map-button/world-maps/json/gu_world.topojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/populated_places.topojson",
+		"/Users/pgutierrez/Downloads/carto_for_pablo/for_Xaquin/Hexagons_all_data.geojson",
+		"/Users/pgutierrez/Desktop/constituencies.csv",
+		"/Users/pgutierrez/Downloads/Municipios_ETRS89_30N/Municipios_ETRS89_30N.shp.xml",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150202 population polls/src/index5.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150202 population polls/src/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150318 uk_hexagons/index2.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150318 uk_hexagons/geo/hexagons.topojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150318 uk_hexagons/geo/uk_hexagons.topojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/js/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150318 uk_hexagons/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/mapping/geodata/ne_10m_populated_places/populated_places.geojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/world_gm.json",
+		"/Users/pgutierrez/Documents/workspace/guardian/mapping/orthographic/index (1).html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/world_disputed.topojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/gm_disputed_areas.topojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/js/topojson.v1.min.js",
+		"/Users/pgutierrez/Documents/workspace/guardian/mapping/hexbin/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150206 Ukraine russian attacks/src/map_v2-interactive/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index4.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index2.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index3.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/zoom.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/uk.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/world_gm.topojson",
+		"/Users/pgutierrez/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/world_gm_raw.topojson",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/w.json",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/world-110m.json",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150202 population polls/src/index4.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150202 population polls/css/webfonts.css",
+		"/Users/pgutierrez/Downloads/html5up-highlights/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/src/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/magic-map-button/world-maps/src/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150202 population polls/src/index7.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150206 Ukraine russian attacks/src/map2-interactive/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150206 Ukraine russian attacks/src/map1-interactive/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/body.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150206 Ukraine russian attacks/img/def/map1-interactive/index.html",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150202 population polls/data/data.csv",
+		"/Users/pgutierrez/Desktop/map1-interactive/index_.html",
+		"/Users/pgutierrez/Desktop/20150210 ukraine maps.svg",
+		"/Users/pgutierrez/Documents/workspace/untitled"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"area",
+			"data",
+			"notifications_n",
+			".notificatons_n",
+			"Notifications",
+			"scale",
+			"yAxis",
+			"y axis",
+			"deaths_n",
+			"yAxis",
+			"y2",
+			"*",
+			"data",
+			"close",
+			"date",
+			"Notifications",
+			"Year",
+			"Notifications",
+			"parseDate",
+			"tsv",
+			"2013",
+			"data",
+			"height",
+			",20",
+			",2",
+			",20",
+			",2",
+			",19",
+			"19",
+			",",
+			"<tr>",
+			"    </tr>",
+			"      ",
+			"</td>",
+			"<td>",
+			"ffffff",
+			"Guardian Egyptian Web",
+			"min-width",
+			", ",
+			"-",
+			", ",
+			"projections_menu",
+			"redraw",
+			"console",
+			"selected_cities_position",
+			"console",
+			"origin_point",
+			"oposite_point",
+			"origin_point",
+			"r",
+			"r ",
+			"selected_cities_position",
+			"text",
+			"arrangeLabels",
+			"redraw",
+			"_5_",
+			"_4_",
+			"_3_",
+			"_2_",
+			"_1_",
+			"tooltip",
+			"W07000064",
+			"_4_",
+			"_3_",
+			"_2_",
+			"_1_",
+			"conClicked",
+			"datum",
+			"conClicked",
+			"datum",
+			" datum[this.id",
+			"datum",
+			"Miliband",
+			"map_con",
+			"map_labour",
+			"- 25",
+			"conClicked",
+			"labClicked",
+			"constituency",
+			"S14000055",
+			"<path id=\"S14000055\" vector-effect=\"none\" display=\"inline\" fill=\"#FCDD03\" stroke=\"#FFFFFF\" stroke-width=\"0.5\" stroke-linecap=\"square\" stroke-linejoin=\"bevel\" d=\"\n		\"/>",
+			"S14000051",
+			"h1",
+			"for the ",
+			"tacticalvote",
+			"lib",
+			"console",
+			"_5_",
+			"_4_",
+			"_3_",
+			"_2_",
+			"_1_",
+			"S14000037_",
+			"S14000039_",
+			"S14000049_",
+			"S14000026_",
+			"S14000018_",
+			"S14000009_",
+			"S14000009",
+			"S14000005_",
+			"S14000005",
+			"W07000067_1_",
+			"E14000716_1_",
+			"E14000598_",
+			"S14000058_",
+			"S14000055_",
+			"S14000051_",
+			"S14000051_1_",
+			"S14000039_1_",
+			"S14000049",
+			"S14000018_",
+			"S14000009_",
+			"S14000009",
+			"S14000005_",
+			"S14000005",
+			"W07000067_1_",
+			"W07000067",
+			"lab_con_4",
+			"W07000064",
+			"W0700006",
+			"W07000067",
+			"S14000005",
+			"getBBox",
+			"E14000598",
+			"S14000058",
+			"S14000055",
+			"S14000051",
+			"S14000039"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index5.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 294.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

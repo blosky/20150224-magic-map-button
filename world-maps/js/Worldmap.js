@@ -217,7 +217,7 @@ d3.select("svg").on("mousedown.log", function() {
     this.clicked = function(d)
     {
 
-         console.log(projection.invert(d3.mouse(this)));
+         console.log(d);
 
         if(cities)d3.selectAll(".place-label").remove();
         if(cities)d3.selectAll(".square").remove();
@@ -296,7 +296,7 @@ d3.select("svg").on("mousedown.log", function() {
     this.resetPorjection = function(string)
     {
     	projection = this.projections[string];
-    	projection.rotate(r);
+    	projection.rotate(origin_point);
     	projection.scale(zoom.scale())
 
     	path.projection(projection);

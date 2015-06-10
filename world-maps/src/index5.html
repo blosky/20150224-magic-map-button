@@ -169,7 +169,7 @@
 	<button id="reset">Reset</button>
 
 	<select id="projections_menu">
-		<option value="Robinson">Robinson2</option>
+		<option value="Robinson">Robinson</option>
 		<option value="Mercator">Mercator</option>
 	</select>
 
@@ -185,7 +185,7 @@
 	<div id="map"></div>
 
 	<script type="text/javascript">
-		var map = new Worldmap(window.innerWidth, window.innerHeight, 180, "Mercator", "map", "../json/", callBack);//width, height, init scale, projection: "Mercator" / "Robison", root to topojson folder, call back funtion
+		var map = new Worldmap(window.innerWidth, window.innerHeight, 180, "Robinson", "map", "../json/", callBack);//width, height, init scale, projection: "Mercator" / "Robison", root to topojson folder, call back funtion
 		var availableTags = [];
 		var menu;
 		function callBack ()
@@ -232,9 +232,13 @@
 
 		function onTagSelected(event,ui)
 		{
-			var country = d3.select(".country ." + ui.item.value);
+      
+			//var country = d3.select(".country ." + ui.item.value);
 
-			map.worldHigh.forEach(function(d){if(d.properties.adm0_a3 == ui.item.value)map.clicked(d); return})
+      //console.log(map.worldHigh.forEach().filter(ui.item.value))
+
+
+			map.worldHigh.forEach(function(d){console.log(d);if(d.properties.adm0_a3 == ui.item.value)map.clicked(d); return})
 		}
 
 		function createDimensions()
