@@ -19,6 +19,8 @@ function Worldmap(_width, _height, _initScale, _projection, _divId, _root, callB
     var pinpoints;
     var countryname;
     var city;
+    var roads;
+    var road;
     var circles;
     var root = _root;
     var cont = 0;
@@ -26,15 +28,18 @@ function Worldmap(_width, _height, _initScale, _projection, _divId, _root, callB
 
     this.projections['Mercator'] = d3.geo.mercator();
     this.projections['Robinson'] = d3.geo.robinson();
+    this.projections['azimuthalEquidistant'] = d3.geo.azimuthalEquidistant();
 
     var projection = this.projections[_projection]
     .rotate([0, 0])
     .translate([_this.width / 2, _this.height / 2])
     .scale(this.width / 2 / Math.PI)
-    .clipExtent([[-ratio, -ratio], [this.width + ratio, this.height + ratio]]);
+    //.clipExtent([[-ratio, -ratio], [this.width + ratio, this.height + ratio]])
+    .clipAngle(180);
 
     var path = d3.geo.path()
     .projection(projection);
+
 
     var zoom = d3.geo.zoom()
     .projection(projection)
@@ -50,8 +55,10 @@ function Worldmap(_width, _height, _initScale, _projection, _divId, _root, callB
       redraw();
   });
 
-    var drag = d3.behavior.drag()
-    .on("dragstart", function(){d3.event.sourceEvent.stopPropagation();})
+    this.drag = d3.behavior.drag()
+    .on("dragstart", function(){
+      console.log(d3.event.sourceEvent)
+      d3.event.sourceEvent.stopPropagation();})
     .on("drag", dragmove);
 
     var svg = div.append("svg")
@@ -65,16 +72,21 @@ function Worldmap(_width, _height, _initScale, _projection, _divId, _root, callB
 
     queue()
     .defer(d3.json, root + "gm_world_raw.topojson")
-    .defer(d3.json, root + "gu_world.topojson")
+    .defer(d3.json, root + "gu_world_.topojson")
     .defer(d3.json, root + 'gm_disputed_areas.topojson') // geojson points
-    .defer(d3.json, root + 'populated_places.topojson') 
-    .await(function(error, low, high, disputed, populated)
+    .defer(d3.json, root + 'populated_places.topojson')
+    //.defer(d3.json, root + 'ne_10m_roads.topojson')
+    .await(function(error, low, high, disputed, populated, travel)
     {
 
     	worldLow = topojson.feature(low, low.objects.gm_world).features;
     	_this.worldHigh = topojson.feature(high, high.objects.gu_world).features;
     	border = topojson.feature(disputed, disputed.objects.gm_disputed_areas).features;
-    	city = topojson.feature(populated, populated.objects.populated_places).features;
+      city = topojson.feature(populated, populated.objects.populated_places).features;
+    	//road = topojson.feature(travel, travel.objects.ne_10m_roads).features;
+
+
+      //roads.filter(function(d){console.log(d)})
 
     	world.selectAll(".country")
     	.data(_this.worldHigh)
@@ -108,10 +120,19 @@ function Worldmap(_width, _height, _initScale, _projection, _divId, _root, callB
     	.attr("class", "border")
     	.attr("d", path);
 
+
+     /* world.selectAll(".roads")
+      .data(road.filter(function(d){console.log(d); return d}))
+      .enter()
+      .insert("path", ".world")
+      .attr("class", "road")
+      .attr("d", path);*/
+
     	conflict_borders = d3.selectAll(".border");
     	conflict_bordersbg = d3.selectAll(".borderbg");
 
     	circles = d3.selectAll(".circle");
+      //roads = d3.selectAll('.road');
 
     	callBack();
     });
@@ -143,6 +164,7 @@ function redraw()
  borders.attr("d", path);
  conflict_borders.attr("d", path);
  conflict_bordersbg.attr("d", path);
+ //roads.attr("d", path);
 
      if(cities)
      {
@@ -151,6 +173,9 @@ function redraw()
         pinpoints.attr("transform", function(d) {return "translate(" + [projection(d.geometry.coordinates)[0] - 8, projection(d.geometry.coordinates)[1]] + ")"; })
         //countryname.attr("transform", function(d){return "translate(" + projection(d3.geo.centroid(d)) + ")"})
         arrangeLabels();
+
+         d3.select(".countryname")
+        .attr("transform","translate(" + _this.width/2 + ',' + _this.height/2 + ")")
       }
 }
 
@@ -217,8 +242,6 @@ d3.select("svg").on("mousedown.log", function() {
     this.clicked = function(d)
     {
 
-         console.log(d);
-
         if(cities)d3.selectAll(".place-label").remove();
         if(cities)d3.selectAll(".square").remove();
         if(cities)d3.selectAll(".countryname").remove();
@@ -244,7 +267,7 @@ d3.select("svg").on("mousedown.log", function() {
         .attr("class", "countryname")
         .text(d.properties.name )
         .attr("transform","translate(" + projection(origin_point) + ")")
-        .call(drag)
+        .call(_this.drag)
 
         world.selectAll(".cities")
         .data(selected_cities)
@@ -256,7 +279,7 @@ d3.select("svg").on("mousedown.log", function() {
         .attr("y", 8)
         .style("text-anchor", function(d) { return d.geometry.coordinates[0] > -1 ? "start" : "end"; })
         .on("dblclick", function(d){this.remove()})
-        .call(drag);
+        .call(_this.drag);
 
         world.selectAll(".pinpoints")
         .data(selected_cities)
@@ -293,7 +316,7 @@ d3.select("svg").on("mousedown.log", function() {
         redraw();
     }
 
-    this.resetPorjection = function(string)
+    /*this.resetPorjection = function(string)
     {
     	projection = this.projections[string];
     	projection.rotate(origin_point);
@@ -305,7 +328,7 @@ d3.select("svg").on("mousedown.log", function() {
     	projection.translate([_this.width / 2, _this.height / 2]);
 
     	redraw();
-    }
+    }*/
 
     this.zoomClick = function(direction)
     {
@@ -349,6 +372,8 @@ d3.select("svg").on("mousedown.log", function() {
  {
      if (typeOf(w) === "Number" && w >= 100)
          _this.width = w;
+
+       redraw()
  }
 
 
@@ -356,6 +381,38 @@ d3.select("svg").on("mousedown.log", function() {
  {
      if (typeOf(h) === "Number" && h >= 100)
          _this.height = h;
+
+       redraw()
+ }
+
+ this.setAnnotation = function(text)
+ {
+    if(text)
+    {
+      d3.select('.world')
+      .append('g')
+      .attr('class', 'annotation')
+      .attr("transform","translate(" + projection(origin_point) + ")")
+      .call(_this.drag)
+
+      var annotation = d3.select('.annotation')
+
+
+      annotation
+      .append('text')
+      .text(text)
+
+
+      annotation
+      .append('line')
+      .attr('height', 20)
+      .attr('x1',0)
+      .attr('y1',0)
+      .attr('x2',0)
+      .attr('y2',20)
+      .style('stroke', '1px')
+
+    }
  }
 
  

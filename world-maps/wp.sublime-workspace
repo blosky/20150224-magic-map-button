@@ -359,22 +359,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/index5.html",
-			"settings":
-			{
-				"buffer_size": 15816,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/Worldmap.js",
-			"settings":
-			{
-				"buffer_size": 11213,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -412,6 +396,9 @@
 	],
 	"file_history":
 	[
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/js/Worldmap.js",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/wp.sublime-project",
+		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index5.html",
 		"/Users/pgutierrez/Documents/workspace/guardian/20150604 vaccines/data.tsv",
 		"/Users/pgutierrez/Documents/workspace/guardian/20150604 vaccines/data2.tsv",
 		"/Users/pgutierrez/Documents/workspace/guardian/20150604 vaccines/index.html",
@@ -432,9 +419,7 @@
 		"/Users/pgutierrez/Downloads/Archive (3)/map.dbf",
 		"/Users/pgutierrez/Documents/workspace/guardian/20150429 Changing seats/conservativeclean.csv",
 		"/Users/pgutierrez/Documents/workspace/guardian/20150429 Changing seats/index.html",
-		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index5.html",
 		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/src/index6.html",
-		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/js/Worldmap.js",
 		"/Users/pgutierrez/Documents/workspace/guardian/magic-map-button/world-maps/json/gu_world.topojson",
 		"/Users/pgutierrez/Documents/workspace/guardian/20150224 magic map button/world-maps/json/populated_places.topojson",
 		"/Users/pgutierrez/Downloads/carto_for_pablo/for_Xaquin/Hexagons_all_data.geojson",
@@ -482,7 +467,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -497,6 +482,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"country",
+			"clicked",
 			"area",
 			"data",
 			"notifications_n",
@@ -622,9 +609,7 @@
 			"getBBox",
 			"E14000598",
 			"S14000058",
-			"S14000055",
-			"S14000051",
-			"S14000039"
+			"S14000055"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -642,69 +627,13 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/index5.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15816,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/Worldmap.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11213,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -725,11 +654,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -777,7 +713,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
